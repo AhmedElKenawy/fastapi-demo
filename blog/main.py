@@ -62,7 +62,7 @@ def updateBlog(id, request: schemas.Blog, response: Response, db: Session = Depe
     return 'updated'
 
 
-@app.post('/user' , response_model= schemas.ShowUser)
+@app.post('/user', response_model=schemas.ShowUser)
 def createUser(request: schemas.User, db: Session = Depends(get_db)):
     new_user = models.User(name=request.name, email=request.email,
                            password=hashing.Hash.bcrypt(request.password))
@@ -72,7 +72,7 @@ def createUser(request: schemas.User, db: Session = Depends(get_db)):
     return new_user
 
 
-@app.get('/user/{id}', response_model= schemas.ShowUser)
+@app.get('/user/{id}', response_model=schemas.ShowUser)
 def getUser(id, response: Response, db: Session = Depends(get_db)):
     user = db.query(models.User).where(models.User.id == id).first()
     if not user:
