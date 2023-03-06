@@ -1,12 +1,12 @@
+FastApi Demo App 
 
-## fastApi Demo App 
-# Blog App with Login 
+Blog App with Login 
 
 
-##install requirements 
+-install requirements 
 
 pip3 install -r requirements.txt
 
-##runn app 
+-runn app 
 
 uvicorn blog.main:app --reload
