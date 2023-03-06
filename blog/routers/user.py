@@ -15,7 +15,7 @@ def createUser(request: schemas.User, db: Session = Depends(database.get_db)):
     new_user = models.User(name=request.name, email=request.email,
                            password=hashing.Hash.bcrypt(request.password))
     db.add(new_user)
-    db.commit()
+    db.commit() 
     db.refresh(new_user)
     return new_user
 
